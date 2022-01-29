@@ -1,7 +1,5 @@
 Predicting House Sale Prices in NYC
 ================
-Brendan Octaviano
-29/01/2022
 
 # Introduction
 
