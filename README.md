@@ -218,7 +218,7 @@ gross_sqft_sale_price_plot
 land_sqrft_sale_price_plot
 ```
 
-<img src="/images/corr_plots.png" width="1000">
+<img src="/images/corr_plot.png" width="1000">
 
 ``` r
 tibble("Pearson's Correlation Coefficient for Gross Square Feet" = cor(nyc_houses$gross_square_feet, nyc_houses$sale_price)) %>%
