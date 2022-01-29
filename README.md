@@ -1,6 +1,16 @@
 Predicting House Sale Prices in NYC
 ================
 
+# Files
+
+images: Contains images to include in README.md.
+
+NYC Property Data 2021 Cleaned.csv: Cleaned data set that was used throughout analysis
+
+Predicting House Sale Prices in NYC.Rmd: Original .Rmd file where I created code
+
+Predicting-House-Sale-Prices-in-NYC.md: GitHub friendly version
+
 # Introduction
 
 New York City is not just the city that we know it all for based on
@@ -208,7 +218,7 @@ gross_sqft_sale_price_plot
 land_sqrft_sale_price_plot
 ```
 
-<img src="Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/figures-side-1.png" width="50%" /><img src="Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/figures-side-2.png" width="50%" />
+<img src="/images/corr_plots.png" width="1000">
 
 ``` r
 tibble("Pearson's Correlation Coefficient for Gross Square Feet" = cor(nyc_houses$gross_square_feet, nyc_houses$sale_price)) %>%
@@ -309,12 +319,13 @@ residual_plot <- houses_pred %>%
   labs(x = "Residuals",
        y = "Count",
        title = "Residual Plot") +
+  scale_x_continuous(labels = scales::comma) +
   theme_bw()
 
 residual_plot
 ```
 
-![](Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+<img src="/images/resid_plot.png" width="1000">
 
 However, we can see that there is normaility in the residuals (minus a
 few outliers), meaning that we can proceed with our analysis.
