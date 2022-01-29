@@ -254,7 +254,7 @@ collect_metrics(fit_cv) %>%
 ```
 After performing cross validation, we have calculated the mean of each fold's root mean squared error (RMSE) and $R^2$ (RSQ). Firstly, our $R^2$ tells us that approximately 43% of the variability in sale price can be explained by gross square feet, land square feet and which borough the house is in. While a number closer to 1 is more ideal, this doesn't necessarily mean it is a bad model.
 
-At the same time, looking at our average RMSE, it appears quite high. However, it is important to note that the sale prices of our houses range form \$15,000 to \$9,000,000, so to predict our house price wrong by approximately \$363,000 isn't terrible.
+At the same time, looking at our average RMSE, it appears quite high. However, it is important to note that the sale prices of our houses range form \$15,000 to \$9,000,000, so to predict our house price wrong by approximately \$370,000 isn't terrible.
 
 # Conclusion
 
