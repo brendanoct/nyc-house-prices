@@ -367,7 +367,7 @@ square feet and which borough the house is in. While a number closer to
 At the same time, looking at our average RMSE, it appears quite high.
 However, it is important to note that the sale prices of our houses
 range form $15,000 to $9,000,000, so to predict our house price wrong by
-approximately $363,000 isn’t terrible.
+approximately $370,000 isn’t terrible.
 
 # Conclusion
 
