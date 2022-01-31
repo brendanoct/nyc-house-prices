@@ -3,7 +3,7 @@ Predicting House Sale Prices in NYC
 
 # Files
 
-images: Contains images to include in README.md.
+Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/: Contains images to include in README.md.
 
 NYC Property Data 2021 Cleaned.csv: Cleaned data set that was used throughout analysis
 
@@ -55,7 +55,6 @@ library(tidyverse)
 library(knitr)
 library(janitor)
 library(readxl)
-library(ggcorrplot)
 library(tidymodels)
 
 #Loading the data
@@ -218,7 +217,7 @@ gross_sqft_sale_price_plot
 land_sqrft_sale_price_plot
 ```
 
-<img src="/images/corr_plot.png" width="1000">
+<img src="Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/figures-side-1.png" width="50%" /><img src="Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/figures-side-2.png" width="50%" />
 
 ``` r
 tibble("Pearson's Correlation Coefficient for Gross Square Feet" = cor(nyc_houses$gross_square_feet, nyc_houses$sale_price)) %>%
@@ -325,7 +324,7 @@ residual_plot <- houses_pred %>%
 residual_plot
 ```
 
-<img src="/images/resid_plot.png" width="1000">
+![](Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 However, we can see that there is normaility in the residuals (minus a
 few outliers), meaning that we can proceed with our analysis.
@@ -380,8 +379,10 @@ borough, and our model does a reasonable job exploring this.
 With this analysis, we hope to create a model that can be useful for
 potential homebuyers in predicting house prices, particularly those
 looking to move into a home while still being considered within New York
-City. While our model can potentially be improved by including other
-variables (potentially macroeconomic indicators), by using the data we
-had available from NYC Department of Finance we were able to develop an
-adequate model that predicts sale prices, and minimises errors as best
-as possible
+City. *Our model could potentially be improved by including other
+variables - macroeconomic indicators like employment rates, interest
+rates and wage growth, number of bedrooms and bathrooms, proximity to
+shops and popular attractions, quality of schools and many more -*,
+however by using the data we had available from NYC Department of
+Finance we were able to develop an adequate model that predicts sale
+prices, and minimises errors as best as possible
