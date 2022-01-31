@@ -126,7 +126,7 @@ nyc_houses %>%
 | bronx   | Baychester   | 01 One Family Dwellings   | 1                       |  4729 |  10 | A1                           | 1278 East 222 Street  |     10469 |                  1 |                 0 |            1 |               3189 |                1408 |        1901 | 1                              | A1                                  |      265000 | 2021-08-20 |
 | bronx   | Baychester   | 01 One Family Dwellings   | 1                       |  4767 |  18 | A1                           | 3025 Kingsland Avenue |     10469 |                  1 |                 0 |            1 |               4750 |                4374 |        1920 | 1                              | A1                                  |      715000 | 2021-04-01 |
 
-# Methodology: Linear Regression and Cross Validation
+# Methodology: Linear Regression and K-Fold Cross Validation
 
 **Linear regression** aims to use a linear approach to model the
 relationship between the dependent variable and one or more explanatory
@@ -155,7 +155,9 @@ training split.
 
 This is more ideal than one train/test split because it allows our model
 to train on multiple train/test splits, giving us a better indication of
-how well our model performs on unseen data.
+how well our model performs on unseen data, giving us confidence to compare
+this to other models and ensures that it is not influenced by outliers or
+chance.
 
 # Model
 
