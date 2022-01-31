@@ -90,13 +90,13 @@ nyc_houses %>%
 
 ```
 
-# Methodology: Linear Regression and Cross Validation
+# Methodology: Linear Regression and K-Fold Cross Validation
 
 **Linear regression** aims to use a linear approach to model the relationship between the dependent variable and one or more explanatory variable. The most common method for fitting a linear regression model is the least squares criterion, which is what the *lm()* function in R uses. By using this function, we are aiming to minimise the residual sum of squares (RSS) through the choices of our coefficients in our model. Intuitively, this makes sense, as we are aiming to model our relationship in such a way where our residuals (or in other words errors) are minimised, to get the most accurate explanation/prediction of our dependent variable.
 
 After using linear regression to create our model, we can check how well our model is performing through the use of **cross validation**, or more specifically **k-fold cross validation**. Instead of doing a simple train/test split (where we split our data in such a way where we "train" our model on our training split, and then "test" the skill of model on our testing split), we are doing this multiple times. Through **k-fold cross validation**, we will be partitioning (fold) the data into k groups. Then, we will take one group as the test split, and the remainder as our training split. We will fit a model on this training split, then evaluate it on our test split. After retaining our metrics from this one train/test split, we will repeat the process, using our next group as the test split, then using the remainder again as our training split. 
 
-This is more ideal than one train/test split because it allows our model to train on multiple train/test splits, giving us a better indication of how well our model performs on unseen data.
+This is more ideal than one train/test split because it allows our model to train on multiple train/test splits, giving us a better indication of how well our model performs on unseen data, giving us confidence to compare this to other models and ensures that it is not influenced by outliers or chance.
 
 # Model
 
