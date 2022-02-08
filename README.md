@@ -126,7 +126,7 @@ nyc_houses %>%
 | bronx   | Baychester   | 01 One Family Dwellings   | 1                       |  4729 |  10 | A1                           | 1278 East 222 Street  |     10469 |                  1 |                 0 |            1 |               3189 |                1408 |        1901 | 1                              | A1                                  |      265000 | 2021-08-20 |
 | bronx   | Baychester   | 01 One Family Dwellings   | 1                       |  4767 |  18 | A1                           | 3025 Kingsland Avenue |     10469 |                  1 |                 0 |            1 |               4750 |                4374 |        1920 | 1                              | A1                                  |      715000 | 2021-04-01 |
 
-# Methodology: Linear Regression and K-Fold Cross Validation
+# Methodology: Linear Regression and Cross Validation
 
 **Linear regression** aims to use a linear approach to model the
 relationship between the dependent variable and one or more explanatory
@@ -155,9 +155,8 @@ training split.
 
 This is more ideal than one train/test split because it allows our model
 to train on multiple train/test splits, giving us a better indication of
-how well our model performs on unseen data, giving us confidence to compare
-this to other models and ensures that it is not influenced by outliers or
-chance.
+how well our model performs on unseen data, as well as a better estimate
+of our out-of-sample accuracy.
 
 # Model
 
@@ -328,13 +327,44 @@ residual_plot
 
 ![](Predicting-House-Sale-Prices-in-NYC_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-However, we can see that there is normaility in the residuals (minus a
+However, we can see that there is normality in the residuals (minus a
 few outliers), meaning that we can proceed with our analysis.
+
+#### Evaluating Model
+
+*EDIT: I now understand when the RMSE or the MAE will be a more
+meaningful measure of error for models. RMSE penalises larger errors in
+our model since RMSE squares the errors first before taking the square
+root of them. Since our model aims to predict the sale prices of houses,
+higher errors are not as important as a scenario, for example, where
+patient’s lives are at risks, therefore the MAE is more useful in our
+situation*
+
+We can also calculate certain metrics to tell us how well our model
+predicts the sale price of these houses.
+
+``` r
+houses_pred %>%
+  metrics(truth = sale_price,
+          estimate = .pred) %>%
+  knitr::kable(digits = 2)
+```
+
+| .metric | .estimator | .estimate |
+|:--------|:-----------|----------:|
+| rmse    | standard   |  390327.6 |
+| rsq     | standard   |       0.4 |
+| mae     | standard   |  213907.5 |
+
+The MAE tells us that on average, our model will predict the sale price
+of the house with a distance of $213,907.50, or in other words, **we
+will predict the price with an average error of $213,907.50, either more
+or less.**
 
 #### Cross Validation
 
-Finally, we will conduct cross validation to check the skill of our
-model, or in other words, how well it can be used to predict sale price.
+Finally, we will conduct cross validation to further check the skill of
+our model.
 
 ``` r
 #Cross Validation
@@ -368,7 +398,9 @@ square feet and which borough the house is in. While a number closer to
 At the same time, looking at our average RMSE, it appears quite high.
 However, it is important to note that the sale prices of our houses
 range form $15,000 to $9,000,000, so to predict our house price wrong by
-approximately $370,000 isn’t terrible.
+approximately $370,000 isn’t terrible. *EDIT: As stated above, while we
+have looked at the RMSE after cross-validation, our MAE is still a more
+meaningful measure for us.*
 
 # Conclusion
 
@@ -381,10 +413,10 @@ borough, and our model does a reasonable job exploring this.
 With this analysis, we hope to create a model that can be useful for
 potential homebuyers in predicting house prices, particularly those
 looking to move into a home while still being considered within New York
-City. *Our model could potentially be improved by including other
+City. Our model could potentially be improved by including other
 variables - macroeconomic indicators like employment rates, interest
 rates and wage growth, number of bedrooms and bathrooms, proximity to
-shops and popular attractions, quality of schools and many more -*,
+shops and popular attractions, quality of schools and many more-,
 however by using the data we had available from NYC Department of
 Finance we were able to develop an adequate model that predicts sale
-prices, and minimises errors as best as possible
+prices, and minimises errors as best as possible.
