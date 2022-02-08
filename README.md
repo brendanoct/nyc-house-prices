@@ -338,7 +338,7 @@ our model since RMSE squares the errors first before taking the square
 root of them. Since our model aims to predict the sale prices of houses,
 higher errors are not as important as a scenario, for example, where
 patient’s lives are at risks, therefore the MAE is more useful in our
-situation*
+situation.*
 
 We can also calculate certain metrics to tell us how well our model
 predicts the sale price of these houses.
